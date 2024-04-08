@@ -1,15 +1,34 @@
 @echo off
-set GIT_PATH="C:\Program Files\Git\usr\bin"
 
-rem OpenSSL Configuration
-set OPENSSL_GIT_PATH=%GIT_PATH%\openssl
-set OPENSSL_KEY_SIZE=2048
-set OPENSSL_OUT_DIR=keys
+echo Benvenuto su GenRSA-Windows!
+
+rem Controlliamo se il file variables.bat esiste
+if not exist resources\variables.bat (
+    echo Errore: Il file variables.bat non è stato trovato.
+    echo Assicurati di avere tutti i file necessari e riprova.
+    pause
+
+    exit /b
+)
+
+call resources/variables.bat
+
+rem Controlliamo se Git è installato nel percorso specificato
+if not exist %GIT_PATH% (
+    echo Errore: Non e' stato possibile trovare Git nel percorso specificato: %GIT_PATH%
+    echo Assicurati di aver installato Git e di aver configurato correttamente il percorso nel file resources\variables.bat.
+    pause
+    
+    exit /b
+)
 
 rem Check if the keys directory exists, if not, create it
 if not exist %OPENSSL_OUT_DIR% (
+    echo Creazione cartella di out...
     mkdir %OPENSSL_OUT_DIR%
 )
+
+echo Generazione...
 
 rem Generate private key
 %OPENSSL_GIT_PATH% genpkey -algorithm RSA -out %OPENSSL_OUT_DIR%\private_key.pem -pkeyopt rsa_keygen_bits:%OPENSSL_KEY_SIZE%
