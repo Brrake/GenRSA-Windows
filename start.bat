@@ -16,7 +16,7 @@ rem Controlliamo se Git è installato nel percorso specificato
 if not exist %GIT_PATH% (
     echo ---- Errore: Non e' stato possibile trovare Git nel percorso specificato: %GIT_PATH% ----
     echo ---- Assicurati di aver installato Git e di aver configurato correttamente il percorso nel file resources\variables.bat. ----
-    echo ---- Scarica Git da questo link : https://git-scm.com/download/win ----
+    echo ---- Scarica e installa Git da questo link : https://git-scm.com/download/win ----
     pause
     exit /b
 )

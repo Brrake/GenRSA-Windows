@@ -1,7 +1,7 @@
 # GenRSA-Windows
 Genera chiavi RSA utilizzando Git 
 
-1) Scarica Git dal link : https://git-scm.com/download/win 
+1) Scarica e installa Git dal link : https://git-scm.com/download/win 
 
 2) Modifica il file "resources/variables.bat" assicurandoti che GIT_PATH corrisponda alla sottocartella bin dell'installazione di GIT (In genere "C:\Program Files\Git\usr\bin")
     - GIT_PATH : Path di installazione di Git -- DEFAULT : "C:\Program Files\Git\usr\bin"
